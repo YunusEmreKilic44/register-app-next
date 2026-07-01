@@ -1,6 +1,8 @@
+import { registerUser } from "./actions";
+
 const RegisterPage = () => {
   return (
-    <form>
+    <form action={registerUser}>
       <input name="name" placeholder="Name..." required />
       <input type="email" name="email" required placeholder="Email..." />
       <input
@@ -9,7 +11,7 @@ const RegisterPage = () => {
         placeholder="Password..."
         required
       />
-      <button>Register Account</button>
+      <button type="submit">Register Account</button>
     </form>
   );
 };
