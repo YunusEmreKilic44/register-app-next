@@ -2,6 +2,7 @@
 
 import { useActionState } from "react";
 import { registerUser } from "./actions";
+import { useFormStatus } from "react-dom";
 
 const RegisterPage = () => {
   const [state, formAction] = useActionState(registerUser, {
@@ -20,7 +21,8 @@ const RegisterPage = () => {
         placeholder="Password..."
         required
       />
-      <button type="submit">Register Account</button>
+
+      <SubmitButton />
 
       {state.success ? (
         <div>
@@ -32,6 +34,16 @@ const RegisterPage = () => {
         </div>
       )}
     </form>
+  );
+};
+
+const SubmitButton = () => {
+  const { pending } = useFormStatus();
+
+  return (
+    <button type="submit">
+      {pending ? "Registering..." : "Register Account"}
+    </button>
   );
 };
 
