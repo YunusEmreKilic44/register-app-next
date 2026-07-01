@@ -41,7 +41,7 @@ const SubmitButton = () => {
   const { pending } = useFormStatus();
 
   return (
-    <button type="submit">
+    <button disabled={pending} type="submit">
       {pending ? "Registering..." : "Register Account"}
     </button>
   );
